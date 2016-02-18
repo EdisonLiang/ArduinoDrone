@@ -36,9 +36,7 @@ void setup() {
   delay(500);
 
   engineArm();
-  delay(1000);
   engineStart();
-  delay(1000);
 
 
 
@@ -198,29 +196,33 @@ void engineArm()
 
   //digitalWrite(13, HIGH);
 
-  writeToMotor(14);
+  writeToMotor(14,14,14,14);
 }
 
 void engineStart()
 {
   Serial.println("Engine Starting... ");
   // Write to Servo
-  writeToMotor(startup);
+  writeToMotor(startup,startup,startup,startup);
 }
 
 void engineLock()
 {
   Serial.println("Engine Locked...");
   //void writeToMotor(int param);
-  writeToMotor(lock);
+  writeToMotor(lock, lock, lock, lock);
 }
 
-void writeToMotor(int param)
+void writeToMotor(int moto1, int moto2, int moto3, int moto4)
 {
-  moto1.write(param);
-  moto2.write(param);
-  moto3.write(param);
-  moto4.write(param);
+  moto1.write(moto1);
+  delay(200);
+  moto2.write(moto2);
+    delay(200);
+  moto3.write(moto3);
+    delay(200);
+      delay(200);
+  moto4.write(moto4);
 }
 
 
